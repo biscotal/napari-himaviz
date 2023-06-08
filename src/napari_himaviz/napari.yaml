@@ -1,0 +1,48 @@
+name: napari-himaviz
+display_name: Hyperspectral Image Visualization
+contributions:
+  commands:
+    - id: napari-himaviz.get_reader
+      python_name: napari_himaviz._reader:napari_get_reader
+      title: Open data with Hyperspectral Image Visualization
+    - id: napari-himaviz.write_multiple
+      python_name: napari_himaviz._writer:write_multiple
+      title: Save multi-layer data with Hyperspectral Image Visualization
+    - id: napari-himaviz.write_single_image
+      python_name: napari_himaviz._writer:write_single_image
+      title: Save image data with Hyperspectral Image Visualization
+    - id: napari-himaviz.make_sample_data
+      python_name: napari_himaviz._sample_data:make_sample_data
+      title: Load sample data from Hyperspectral Image Visualization
+    - id: napari-himaviz.make_qwidget
+      python_name: napari_himaviz._widget:ExampleQWidget
+      title: Make example QWidget
+    - id: napari-himaviz.make_magic_widget
+      python_name: napari_himaviz._widget:example_magic_widget
+      title: Make example magic widget
+    - id: napari-himaviz.make_func_widget
+      python_name: napari_himaviz._widget:example_function_widget
+      title: Make example function widget
+  readers:
+    - command: napari-himaviz.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  writers:
+    - command: napari-himaviz.write_multiple
+      layer_types: ['image*','labels*']
+      filename_extensions: []
+    - command: napari-himaviz.write_single_image
+      layer_types: ['image']
+      filename_extensions: ['.npy']
+  sample_data:
+    - command: napari-himaviz.make_sample_data
+      display_name: Hyperspectral Image Visualization
+      key: unique_id.1
+  widgets:
+    - command: napari-himaviz.make_qwidget
+      display_name: Example QWidget
+    - command: napari-himaviz.make_magic_widget
+      display_name: Example Magic Widget
+    - command: napari-himaviz.make_func_widget
+      autogenerate: true
+      display_name: Example Function Widget
